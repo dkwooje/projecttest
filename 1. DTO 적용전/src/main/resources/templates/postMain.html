@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div th:replace="~{navi.html::postmember}"></div>
+
+<div th:each="ID : ${data}" >
+    <div>
+    <a>번호:</a>
+        <span th:text="${ID.id}"></span>
+    <p></p>
+    <a>제목:</a>
+         <span th:text="${ID.title}"></span>
+    <p></p>
+    <a>내용:</a>
+         <span th:text="${ID.content}"></span>
+    </div>
+    <div>
+        <a th:href="@{'/post/update/' +${ID.id} }">수정페이지</a>
+        <a th:href="@{'/post/delete/' +${ID.id} }">삭제페이지</a>
+        <a th:href="@{'/post/comment/' +${ID.id} }">댓글작성</a>
+    </div>
+    <p>-------------------------------------------------------------------</p>
+</div>
+
+
+</body>
+</html>

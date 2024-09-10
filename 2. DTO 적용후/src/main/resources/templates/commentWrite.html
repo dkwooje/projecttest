@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div th:replace="~{navi.html::postmember}"></div>
+
+<form th:action="@{/post/comment/{post_id}(post_id=${post_id})}" method="post">
+    <p>댓글 작성</p>
+    <input name="content" placeholder="댓글 작성">
+    <button type="submit">작성</button>
+</form>
+<p></p>
+<form th:action="@{/post/comment/auto/{post_id}(post_id=${post_id})}" method="POST">
+    <button>자동 5000 작성버튼</button>
+</form>
+
+<div >
+    <a th:href="@{/post/comment/{post_id}/list(post_id=${post_id})}">댓글목록</a>
+</div>
+</body>
+</html>
