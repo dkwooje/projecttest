@@ -3,45 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Register</title>
+    <title>JSON 방식 예제</title>
 </head>
 <body>
-<h1>User Register</h1>
-<form id="registerForm">
-    <label>Username: </label>
-    <input type="text" id="username" required><br>
-    <label>Password: </label>
-    <input type="password" id="password" required><br>
-    <label>Email: </label>
-    <input type="email" id="email" required><br>
-    <button type="submit">Register</button>
-</form>
+<h4>아이디</h4>
+<input id="username" type="text" placeholder="아이디를 입력하세요">
+
+<h4>비밀번호</h4>
+<input id="password" type="password" placeholder="비밀번호를 입력하세요">
+
+<h4>이메일</h4>
+<input id="email" type="email" placeholder="이메일을 입력하세요">
+
+<button onclick="sendData()">가입</button>
 
 <script>
-    document.getElementById('registerForm').addEventListener('submit', async function (event) {
-        event.preventDefault();
-
-        const user = {
+    function sendData() {
+        const data = {
             username: document.getElementById('username').value,
             password: document.getElementById('password').value,
             email: document.getElementById('email').value
         };
 
-        const response = await fetch('/user/register', {
+        fetch('/user/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
         });
-
-        if (response.ok) {
-            alert("User registered successfully");
-            window.location.href = "/usermain.html";
-        } else {
-            alert("Failed to register user");
-        }
-    });
+    }
 </script>
 </body>
 </html>
