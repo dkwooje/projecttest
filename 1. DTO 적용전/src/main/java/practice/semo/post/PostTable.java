@@ -1,6 +1,7 @@
 package practice.semo.post;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import lombok.Getter;
@@ -24,7 +25,7 @@ public class PostTable {
     @Column(name = "post_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "user_id")
     private UserTable user;
 
