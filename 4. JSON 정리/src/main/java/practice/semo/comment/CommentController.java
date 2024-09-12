@@ -19,13 +19,6 @@ public class CommentController {
     private final CommentRepository commentRepository;
     private final CommentService commentService;
 
-    // 특정 post_id에 대한 댓글 작성 페이지 반환
-    @GetMapping("/{post_id}")
-    public Map<String, Object> commentWrite1(@PathVariable Long post_id) {
-        Map<String, Object> response = new HashMap<>();
-        response.put("page", "commentWrite.html");
-        return response;  // JSON으로 응답
-    }
 
     // 댓글 작성 처리
     @PostMapping("/{post_id}")

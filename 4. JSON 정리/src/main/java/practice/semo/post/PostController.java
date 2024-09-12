@@ -25,12 +25,6 @@ public class PostController {
     }
 
 
-    // 게시글 작성 페이지를 JSON으로 응답
-    @GetMapping("/write")
-    public String writePage() {
-        return "{\"message\": \"Post writing page\"}";
-    }
-
     // 게시글 작성 요청 처리
     @PostMapping("/write")
     public void writePost(@RequestBody List<PostDTO> posts) {
