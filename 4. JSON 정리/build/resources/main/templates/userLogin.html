@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div th:replace="~{navi.html::rog}"></div>
+
+<div th:if="${param.error}"></div>
+
+<form th:action="@{/user/login}"  method="POST">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+    <p>아이디</p>
+    <input name="username" placeholder="아이디">
+    <p>비밀번호</p>
+    <input name="password" placeholder="비밀번호"  type="password">
+    <button type="submit">로그인</button>
+</form>
+
+
+</body>
+</html>
