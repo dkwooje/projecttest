@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div th:replace="~{navi.html::rora}"></div>
+<p>수정할 댓글 목록</p>
+<div >
+    <h4>---------유저 id--------------</h4>
+    <h4 th:text="${'user_id: ' + ed.user_id}"></h4>
+    <h4>---------게시판 id--------------</h4>
+    <h4 th:text="${'post_id: ' + ed.post_id}"></h4>
+    <h4>---------댓글 내용--------------</h4>
+    <h4 th:text="${'content: ' + ed.content}"></h4>
+</div>
+
+
+<form th:action="@{'/comment/contentfix/' + ${ed.comment_id} }" method="POST">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+    <input type="hidden" name="comment_id" th:value="${ed.comment_id}">
+    <input name="content" th:value="${ed.content}">
+    <button type="submit">전송</button>
+</form>
+
+</body>
+</html>

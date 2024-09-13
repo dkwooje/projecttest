@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface CommentRepository extends JpaRepository<CommentTable,Long> {
 
-    //List<CommentTable> findByPost_Id(Long postId);
+
     Page<CommentTable> findByPost_Id(Long postId, Pageable pageable);
-    void deleteByPostId(Long id);
+
 }

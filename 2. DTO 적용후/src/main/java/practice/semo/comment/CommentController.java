@@ -62,10 +62,6 @@ public class CommentController {
 
         return "commentList.html";
     }
-
-
-
-
 }
 
 

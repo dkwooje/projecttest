@@ -25,12 +25,12 @@ public class UserController {
     String register1(){
         return "/userRegister.html";
     }
+
     @PostMapping("/user/register")
     String register2(@RequestParam String username,
                      @RequestParam String password,
                      @RequestParam String email){
         UserDTO userDTO = new UserDTO();
-
         userDTO.setUsername(username);
         userDTO.setPassword(password);
         userDTO.setEmail(email);
