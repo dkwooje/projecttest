@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div th:replace="~{navi.html::postmember}"></div>
+
+<div>
+    <a th:href="@{/post/comment/{post_id}(post_id=${post_id})}">뒤로가기</a>
+</div>
+
+<div th:each="comment : ${data}">
+    <h4 th:text="${comment.id}"></h4>
+    <p th:text="${comment.content}"></p>
+    <p th:text="${comment.created_at}"></p>
+    <p>--------------------------------------------------------</p>
+</div>
+<div>
+    <a  th:href="@{|/post/comment/${post_id}/list?page=${currentPage - 5}|}">이전</a>
+    <span th:each="pageNum : ${#numbers.sequence(startPage, endPage)}">
+            <a th:href="@{|/post/comment/${post_id}/list?page=${pageNum - 1}|}"
+               th:text="${pageNum}"
+               th:classappend="${pageNum == currentPage} ? 'active' : ''"></a>
+    </span>
+    <a  th:href="@{|/post/comment/${post_id}/list?page=${currentPage + 5}|}">다음</a>
+</div>
+
+</body>
+</html>

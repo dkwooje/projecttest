@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div th:replace="~{navi.html::postmember}"></div>
+
+<form th:href="@{/post/write}" method="POST">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+    <h4>제목</h4>
+    <input name="title" placeholder="제목">
+    <h4>게시글</h4>
+    <input name="content" placeholder="게시글">
+    <button type="submit">작성</button>
+</form>
+
+
+
+</body>
+</html>
