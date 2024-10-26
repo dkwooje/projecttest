@@ -16,3 +16,15 @@ Spring boot를 활용하여 간단한 홈페이지를 구현해 보았습니다.
 
 다음으로 DTO가 적용되기 전과 후의 코드를 비교해보았습니다.
 코드를 비교하면서 객체지향성을 다시 한번 확인하고, 코딩숙련도 연습을 하였습니다.
+
+
+![스크린샷(71)](https://github.com/user-attachments/assets/0d3f37cf-d12f-4eec-8ee0-3ffbadeec5d8)
+
+다음으로 타임림프기법을 JSON으로 바꿔보았습니다.
+두 기법의 차이점을 이해하는 공부입니다.
+
+![스크린샷(74)](https://github.com/user-attachments/assets/d701e3be-e9fb-43a7-9375-4e27c2ea4b20)
+![스크린샷(73)](https://github.com/user-attachments/assets/9375e43b-4645-4d3f-986a-4ef36c04bea0)
+![스크린샷(72)](https://github.com/user-attachments/assets/ea7a5022-ddfb-471c-a11e-309c5e832d25)
+POSTMAN을 활용하면 JSON형식의 코드가 잘 작동 되는지 알 수 있습니다.
+
